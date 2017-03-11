@@ -20,10 +20,15 @@ void multiply_matrix(int [matrix_size][matrix_size], int [matrix_size][matrix_si
 void divide_matrix(int [matrix_size][matrix_size], int [matrix_size][matrix_size], int [matrix_size][matrix_size]);
 void fill_matrix(int [matrix_size][matrix_size], int);
 void print_matrix(int [matrix_size][matrix_size]);
+
 int main(int argc, const char * argv[]) {
-    integer_math_benchmark();
+    
+    //integer_math_benchmark();
+    
     return 0;
 }
+
+
 
 void integer_math_benchmark(){
     
