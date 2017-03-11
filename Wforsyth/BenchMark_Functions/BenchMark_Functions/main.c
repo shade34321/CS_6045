@@ -12,7 +12,7 @@
 #include <inttypes.h>
 
 #define matrix_size 500
-#define string_size 256
+#define string_size 20
 
 void integer_math_benchmark();
 void add_matrix(int [matrix_size][matrix_size], int [matrix_size][matrix_size], int [matrix_size][matrix_size]);
@@ -22,6 +22,7 @@ void divide_matrix(int [matrix_size][matrix_size], int [matrix_size][matrix_size
 void fill_matrix(int [matrix_size][matrix_size], int);
 void print_matrix(int [matrix_size][matrix_size]);
 void run_length_encoding_benchmark();
+void run_length_encode(char x[string_size]);
 
 int main(int argc, const char * argv[]) {
     
@@ -163,12 +164,90 @@ void print_matrix(int x[matrix_size][matrix_size]){
 void run_length_encoding_benchmark(){
     FILE* file;
     char line[string_size];
+//    char line[20] = {'1','1','1','2','2','2','2','0','0','0','1','1','1','2','2','2','2','0','0','0'};
+
     file = fopen ("Strings.txt", "r");
     while(fscanf(file, "%s", line) != EOF){
         printf("%s\n", line);
     }
+    
+    run_length_encode(line);
 }
 
-void run_length_encode(char x[]){
+void run_length_encode(char x[string_size]){
+    char result[string_size*2];
+    int i = 0, j= 0, char_count = 0, result_position = 0;
+    char temp, count_string[3];
     
+    temp = x[0];
+    result[0] = temp;
+    char_count++;
+    result_position++;
+    
+    for(i = 1; i<string_size; i++){
+        if(x[i] == temp){
+            char_count++;
+        }else{
+            sprintf(count_string, "%d", char_count);
+            
+            for(j = 0; *(count_string+j); j++){
+                result[result_position] = count_string[j];
+                result_position++;
+            }
+
+            char_count = 0;
+            temp  = x[i];
+            result[result_position] = temp;
+            result_position++;
+            char_count++;
+
+        }
+    }
+    sprintf(count_string, "%d", char_count);
+    
+    for(j = 0; *(count_string+j); j++){
+        result[result_position] = count_string[j];
+        result_position++;
+    }
+    result[result_position] = '\0';
+    printf("%s\n", result);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
