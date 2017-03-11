@@ -12,7 +12,7 @@
 #include <inttypes.h>
 
 #define matrix_size 500
-#define string_size 20
+#define string_size 256
 
 void integer_math_benchmark();
 void add_matrix(int [matrix_size][matrix_size], int [matrix_size][matrix_size], int [matrix_size][matrix_size]);
@@ -167,12 +167,23 @@ void run_length_encoding_benchmark(){
 //    char line[20] = {'1','1','1','2','2','2','2','0','0','0','1','1','1','2','2','2','2','0','0','0'};
 
     file = fopen ("Strings.txt", "r");
-    while(fscanf(file, "%s", line) != EOF){
-        printf("%s\n", line);
-    }
     
-    run_length_encode(line);
-}
+    struct timeval t1, t2;
+    double elapsedTime;
+
+    printf("Run_Time_Encode: ");
+    // start timer
+    gettimeofday(&t1, NULL);
+    while(fscanf(file, "%s", line) != EOF){
+        run_length_encode(line);
+    }
+    // stop timer
+    gettimeofday(&t2, NULL);
+    // compute and print the elapsed time in millisec
+    elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;      // sec to ms
+    elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;   // us to ms
+    printf("elapsed %fus\n", elapsedTime);
+ }
 
 void run_length_encode(char x[string_size]){
     char result[string_size*2];
@@ -210,7 +221,7 @@ void run_length_encode(char x[string_size]){
         result_position++;
     }
     result[result_position] = '\0';
-    printf("%s\n", result);
+//    printf("%s\n", result);
 }
 
 
