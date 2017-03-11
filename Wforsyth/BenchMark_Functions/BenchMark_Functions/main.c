@@ -21,11 +21,12 @@ void multiply_matrix(int [matrix_size][matrix_size], int [matrix_size][matrix_si
 void divide_matrix(int [matrix_size][matrix_size], int [matrix_size][matrix_size], int [matrix_size][matrix_size]);
 void fill_matrix(int [matrix_size][matrix_size], int);
 void print_matrix(int [matrix_size][matrix_size]);
+void run_length_encoding_benchmark();
 
 int main(int argc, const char * argv[]) {
     
     //integer_math_benchmark();
-    
+    run_length_encoding_benchmark();
     return 0;
 }
 
@@ -163,9 +164,11 @@ void run_length_encoding_benchmark(){
     FILE* file;
     char line[string_size];
     file = fopen ("Strings.txt", "r");
-    while(fscanf(file, "%s", line) != 0){
+    while(fscanf(file, "%s", line) != EOF){
         printf("%s\n", line);
     }
-    
+}
+
+void run_length_encode(char x[]){
     
 }
