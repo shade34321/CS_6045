@@ -12,6 +12,7 @@
 #include <inttypes.h>
 
 #define matrix_size 500
+#define string_size 256
 
 void integer_math_benchmark();
 void add_matrix(int [matrix_size][matrix_size], int [matrix_size][matrix_size], int [matrix_size][matrix_size]);
@@ -27,8 +28,6 @@ int main(int argc, const char * argv[]) {
     
     return 0;
 }
-
-
 
 void integer_math_benchmark(){
     
@@ -138,10 +137,10 @@ void fill_matrix(int x[matrix_size][matrix_size], int matrix){
 
     if(matrix == 1){
         //open DataA.txt
-        file = fopen ("DataA.txt", "r");
+        file = fopen ("MatrixA.txt", "r");
     }else{
         //open DataB.txt
-        file = fopen ("DataB.txt", "r");
+        file = fopen ("MatrixB.txt", "r");
     }
     for(i = 0; i<matrix_size; i++){
         for(j = 0; j < matrix_size; j++){
@@ -157,4 +156,16 @@ void print_matrix(int x[matrix_size][matrix_size]){
         for(j = 0; j < matrix_size; j++){
             printf("[%i][%i] = %i\n", i, j, x[i][j]);
         }
-    }}
+    }
+}
+
+void run_length_encoding_benchmark(){
+    FILE* file;
+    char line[string_size];
+    file = fopen ("Strings.txt", "r");
+    while(fscanf(file, "%s", line) != 0){
+        printf("%s\n", line);
+    }
+    
+    
+}
