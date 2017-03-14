@@ -22,12 +22,16 @@ void divide_matrix(int [matrix_size][matrix_size], int [matrix_size][matrix_size
 void fill_matrix(int [matrix_size][matrix_size], int);
 void print_matrix(int [matrix_size][matrix_size]);
 void run_length_encoding_benchmark();
-void run_length_encode(char x[string_size]);
+void run_length_encode(char [string_size]);
+void prime_number_benchmark(int);
+int is_prime(int);
+
 
 int main(int argc, const char * argv[]) {
     
-    //integer_math_benchmark();
+    integer_math_benchmark();
     run_length_encoding_benchmark();
+    prime_number_benchmark(1000);
     return 0;
 }
 
@@ -223,3 +227,52 @@ void run_length_encode(char x[string_size]){
     result[result_position] = '\0';
 //    printf("%s\n", result);
 }
+
+void prime_number_benchmark(int limit){
+    struct timeval t1, t2;
+    int prime_count = 0;
+    double elapsedTime;
+    
+    printf("Prime numbers to %d: ", limit);
+    // start timer
+    gettimeofday(&t1, NULL);
+    int i = 0;
+    for(i = 0; i<limit; i++){
+        if(is_prime(i)){
+            prime_count++;
+        }else{
+            //do nothing
+        }
+    }
+    // stop timer
+    gettimeofday(&t2, NULL);
+    // compute and print the elapsed time in millisec
+    elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;      // sec to ms
+    elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;   // us to ms
+    printf("found %d in %fus\n",prime_count, elapsedTime);
+}
+
+int is_prime(int n){
+    int p;
+    for(p = 2; p < n; p++){
+        if(n % p ==0 && p != n)
+            return 0;
+    }
+    return 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
