@@ -12,7 +12,8 @@
 #include <inttypes.h>
 
 #define matrix_size 500
-#define string_size 256
+#define string_size 512
+#define prime_limit 2000
 
 void integer_math_benchmark();
 void add_matrix(int [matrix_size][matrix_size], int [matrix_size][matrix_size], int [matrix_size][matrix_size]);
@@ -31,7 +32,7 @@ int main(int argc, const char * argv[]) {
     
     integer_math_benchmark();
     run_length_encoding_benchmark();
-    prime_number_benchmark(1000);
+    prime_number_benchmark(prime_limit);
     return 0;
 }
 
