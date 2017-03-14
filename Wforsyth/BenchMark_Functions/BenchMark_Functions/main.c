@@ -13,7 +13,7 @@
 
 #define matrix_size 500
 #define string_size 512
-#define prime_limit 2000
+#define prime_limit 100000
 
 void integer_math_benchmark();
 void add_matrix(int [matrix_size][matrix_size], int [matrix_size][matrix_size], int [matrix_size][matrix_size]);
@@ -201,7 +201,7 @@ void run_length_encode(char x[string_size]){
     result_position++;
     
     for(i = 1; i<string_size; i++){
-        if(x[i] == temp){
+        if(x[i] == temp && char_count < 9){
             char_count++;
         }else{
             sprintf(count_string, "%d", char_count);
