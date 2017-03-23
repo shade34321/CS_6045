@@ -1,6 +1,6 @@
 #include <AESLib.h>
 
-#define max_lines 25
+#define max_lines 500
 
 void configCrypt()
 {
