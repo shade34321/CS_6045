@@ -18,7 +18,7 @@ randomSeed(analogRead(0));
   unsigned long starttime, elapsed;
   int i = 0, j = 0;
   Serial.begin(9600);
-  Serial.println("Benchmark,AES_Encode_Decode,Processor,Ardunio_Uno");
+  Serial.println("Benchmark,AES_Encode_Decode,Processor,Ardunio_Mega_2560");
   Serial.println("Line Size(bytes),Encode Time(miliseconds),Decode Time(miliseconds)");
 
   for(j = 1; j<=max_lines; j++){

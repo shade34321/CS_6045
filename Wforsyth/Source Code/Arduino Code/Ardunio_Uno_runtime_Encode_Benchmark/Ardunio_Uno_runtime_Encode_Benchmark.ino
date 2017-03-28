@@ -4,7 +4,7 @@
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
-  Serial.println("Benchmark,Run_Time_Encode,Processor,Ardunio_Uno");
+  Serial.println("Benchmark,Run_Time_Encode,Processor,Ardunio_Mega_2560");
   Serial.println("String length(bytes),# of lines,time(miliseconds)");
   unsigned long starttime;
   unsigned long elapsed;

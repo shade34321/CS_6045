@@ -96,7 +96,7 @@ int c[10][10];
     unsigned long starttime;
     unsigned long elapsed;
     
-    Serial.println("Benchmark,Integer_Addition,Processor,Ardunio_Uno");
+    Serial.println("Benchmark,Integer_Addition,Processor,Ardunio_Mega_2560");
     // start timer
     starttime=millis();
     add_matrix(a, b, c, iterations);
@@ -108,7 +108,7 @@ int c[10][10];
     Serial.println(elapsed);
     Serial.println("END");
     
-    Serial.println("Benchmark,Integer_Subtraction,Processor,Ardunio_Uno");
+    Serial.println("Benchmark,Integer_Subtraction,Processor,Ardunio_Mega_2560");
      // start timer
     starttime=millis();
     subtract_matrix(a, b, c, iterations);
@@ -120,7 +120,7 @@ int c[10][10];
     Serial.println(elapsed);
     Serial.println("END");
     
-    Serial.println("Benchmark,Integer_Multiplication,Processor,Ardunio_Uno");
+    Serial.println("Benchmark,Integer_Multiplication,Processor,Ardunio_Mega_2560");
      // start timer
     starttime=millis();
     multiply_matrix(a, b, c, iterations);
@@ -132,7 +132,7 @@ int c[10][10];
     Serial.println(elapsed);
     Serial.println("END");
     
-    Serial.println("Benchmark,Integer_Division,Processor,Ardunio_Uno");
+    Serial.println("Benchmark,Integer_Division,Processor,Ardunio_Mega_2560");
      // start timer
     starttime=millis();
     divide_matrix(a, b, c, iterations);
